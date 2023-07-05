@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Security.Cryptography.X509Certificates;
 using System.Drawing.Text;
+using CRUD_ACIA.Clases;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CRUD_ACIA
 {
@@ -76,6 +78,43 @@ namespace CRUD_ACIA
 
                 CRUD crudd = new CRUD();
                 crudd.Show();
+                Clases.Usuario CurrentUser = new Clases.Usuario();
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SPObtenerInfoUsuarioPorUserName", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@User", Usuario);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            try
+                            {
+
+                                if (reader.Read())
+                                {
+                                    CurrentUser.ID_Usuario = Convert.ToInt32(reader["ID_Usuario"]);
+                                    CurrentUser.Cedula_Usuario = reader["Cedula_Usuario"].ToString();
+                                    CurrentUser.Nombre_Usuario = reader["Nombre_Usuario"].ToString();
+                                    CurrentUser.Apellido_Paterno_Usuario = reader["Apellido_Paterno_Usuario"].ToString();
+                                    CurrentUser.Apellido_Materno_Usuario = reader["Apellido_Materno_Usuario"].ToString();
+                                    CurrentUser.FechaNacimiento_Usuario = Convert.ToDateTime(reader["FechaNacimiento_Usuario"]);
+                                    CurrentUser.ID_Credencial = Convert.ToInt32(reader["ID_Credencial"]);
+                                    CurrentUser.ID_Seccion = Convert.ToInt32(reader["ID_Seccion"]);
+                                    CurrentUser.isenabled = Convert.ToBoolean(reader["isenabled"]);
+                                }
+                                else
+                                {
+                                }
+                            }
+                            catch(Exception ex) { }
+                        }
+                    }
+                }
+
             }
             else
             {
@@ -83,6 +122,24 @@ namespace CRUD_ACIA
                 // Realizar las acciones correspondientes al inicio de sesión fallido
             }
 
+
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private bool isFirstEditPass = true;
+        private void CLAVETXT_TextChanged(object sender, EventArgs e)
+        {
+
+            if (isFirstEditPass)
+            {
+                CLAVETXT.Text = string.Empty;
+                isFirstEditPass = false;
+            }
 
         }
 
@@ -147,21 +204,6 @@ namespace CRUD_ACIA
             }
 
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private bool isFirstEditPass = true;
-        private void CLAVETXT_TextChanged(object sender, EventArgs e)
-        {
-
-            if (isFirstEditPass)
-            {
-                CLAVETXT.Text = string.Empty;
-                isFirstEditPass = false;
-            }
-
-        }
     }
 }

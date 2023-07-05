@@ -16,8 +16,6 @@ namespace CRUD_ACIA.Clases
         public DateTime FechaNacimiento_Usuario { get; set; }
         public int ID_Credencial { get; set; }
         public int ID_Seccion { get; set; }
-        public string ResponsableInsert { get; set; }
-        public DateTime DateTimeInsert { get; set; }
         public bool isenabled { get; set; }
     }
 }
