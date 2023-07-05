@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ACIADataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Usuario.cs" />
     <Compile Include="CRUD.cs">
       <SubType>Form</SubType>
     </Compile>
