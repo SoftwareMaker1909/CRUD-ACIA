@@ -226,5 +226,10 @@ namespace CRUD_ACIA
         {
             InsertarUsuario();
         }
+
+        private void WelcomeToUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

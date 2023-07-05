@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Security.Cryptography.X509Certificates;
+using System.Drawing.Text;
 
 namespace CRUD_ACIA
 {
@@ -37,10 +38,22 @@ namespace CRUD_ACIA
 
         }
 
+        private bool isFirstEdit = true;
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
+            if (isFirstEdit)
+            {
+                USERTXT.Text = string.Empty;
+                isFirstEdit = false;
+            }
         }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -50,11 +63,11 @@ namespace CRUD_ACIA
         private void button1_Click(object sender, EventArgs e)
         {
             // Obtener los valores de los campos de entrada
-            int ID_Credencial = Convert.ToInt32(USERTXT.Text);
+            string Usuario = USERTXT.Text;
             string Clave = CLAVETXT.Text;
 
             // Llamada al método para validar las credenciales
-            bool isValid = ValidateCredentials(ID_Credencial, Clave);
+            bool isValid = ValidateCredentials(Usuario, Clave);
 
             if (isValid)
             {
@@ -73,7 +86,7 @@ namespace CRUD_ACIA
 
         }
 
-        private bool ValidateCredentials(int ID_Credencial, string Clave)
+        private bool ValidateCredentials(string Usuario, string Clave)
         {
             bool isValid = false;
 
@@ -83,29 +96,72 @@ namespace CRUD_ACIA
                 {
                     connection.Open();
 
-                    string query = "SELECT COUNT(*) FROM Credencial_Usuario WHERE ID_Credencial = @ID_Credencial AND Clave = @Clave AND Rol_ID = 2";
+                    string query = "SELECT COUNT(*) FROM Credencial_Usuario WHERE Usuario = @Usuario AND Clave = @Clave AND Rol_ID = 2";
                     SqlCommand command = new SqlCommand(query, connection);
 
-                    command.Parameters.AddWithValue("@ID_Credencial", SqlDbType.Int).Value = ID_Credencial;
+                    command.Parameters.AddWithValue("@Usuario", SqlDbType.Int).Value = Usuario;
                     command.Parameters.AddWithValue("@Clave", SqlDbType.VarChar).Value = Clave;
 
                     int count = (int)command.ExecuteScalar();
 
                     isValid = (count > 0);
+                    if (isValid) { InsertarLoginLog("CRUD_ValidateCredentials Line 76", "0000", 1, "Inicio de Sesion Exitoso para " + Usuario); }
+                    else { InsertarLoginLog("CRUD_ValidateCredentials Line 76", "UNF", 1, "No se encuentra un usuario con las caracteristicas"); }
                 }
                 catch (Exception ex)
                 {
+
                     MessageBox.Show("Error: " + ex.Message);
+                    InsertarLoginLog("CRUD_ValidateCredentials Line 76", "SYS_ERROR", 1, "Error del sistema, comuniquese con el departamento de BackEnd");
+
                 }
             }
 
             return isValid;
         }
 
+        public void InsertarLoginLog(string modulo,string ErrorCode, int sesionID,string ErrorDescription)
+        {
+            try
 
+            {
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    var command = new SqlCommand("INSERT INTO Login_LOGS (Date_Log, Modulo, Codigo_Error, ID_Sesion, ErrorDescription) VALUES (GETDATE(), @Modulo, @ErrorCode, @SesionID, @ErrorDescription)", connection);
+                    command.Parameters.AddWithValue("@Modulo", modulo);
+                    command.Parameters.AddWithValue("@ErrorCode", ErrorCode);
+                    command.Parameters.AddWithValue("@SesionID", sesionID);
+                    command.Parameters.AddWithValue("@ErrorDescription", ErrorDescription);
+
+                    command.ExecuteNonQuery();
+                }
+
+
+            }
+            catch (Exception ex)
+            { 
+            
+            }
+
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private bool isFirstEditPass = true;
+        private void CLAVETXT_TextChanged(object sender, EventArgs e)
+        {
+
+            if (isFirstEditPass)
+            {
+                CLAVETXT.Text = string.Empty;
+                isFirstEditPass = false;
+            }
+
         }
     }
 }
