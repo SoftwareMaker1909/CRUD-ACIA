@@ -83,6 +83,24 @@ namespace CRUD_ACIA
             this.materiasTableAdapter.Fill(this.materiasDataset.Materias);
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();   
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CRUD cRUD = new CRUD();
+            cRUD.Show();
+            this.Hide();    
+
+        }
     }
 
 

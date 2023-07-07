@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.WelcomeToUser = new System.Windows.Forms.Label();
+            this.ASIGNATURAS = new System.Windows.Forms.Button();
             this.NombreUsuarioTXT = new System.Windows.Forms.TextBox();
             this.ClaveTXT = new System.Windows.Forms.TextBox();
             this.RolCBX = new System.Windows.Forms.ComboBox();
@@ -52,10 +52,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.AgregarCredenBTN = new System.Windows.Forms.Button();
             this.BTNagregar2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.ASIGNATURAS = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.rolBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCIADataSet)).BeginInit();
             this.SuspendLayout();
@@ -63,24 +61,23 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.ASIGNATURAS);
-            this.panel1.Controls.Add(this.WelcomeToUser);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.BackgroundImage = global::CRUD_ACIA.Properties.Resources.portrait_cute_young_woman_carrying_books_backpack_smiling;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 516);
+            this.panel1.Size = new System.Drawing.Size(283, 189);
             this.panel1.TabIndex = 0;
             // 
-            // WelcomeToUser
+            // ASIGNATURAS
             // 
-            this.WelcomeToUser.AutoSize = true;
-            this.WelcomeToUser.Location = new System.Drawing.Point(15, 5);
-            this.WelcomeToUser.Name = "WelcomeToUser";
-            this.WelcomeToUser.Size = new System.Drawing.Size(90, 16);
-            this.WelcomeToUser.TabIndex = 21;
-            this.WelcomeToUser.Text = "Buenos Dias! ";
-            this.WelcomeToUser.Click += new System.EventHandler(this.WelcomeToUser_Click);
+            this.ASIGNATURAS.Location = new System.Drawing.Point(77, 402);
+            this.ASIGNATURAS.Name = "ASIGNATURAS";
+            this.ASIGNATURAS.Size = new System.Drawing.Size(124, 59);
+            this.ASIGNATURAS.TabIndex = 22;
+            this.ASIGNATURAS.Text = "Asignaturas";
+            this.ASIGNATURAS.UseVisualStyleBackColor = true;
+            this.ASIGNATURAS.Click += new System.EventHandler(this.ASIGNATURAS_Click);
             // 
             // NombreUsuarioTXT
             // 
@@ -271,16 +268,6 @@
             this.BTNagregar2.UseVisualStyleBackColor = true;
             this.BTNagregar2.Click += new System.EventHandler(this.BTNagregar2_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(279, 487);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 28);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(250)))));
@@ -297,24 +284,24 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ASIGNATURAS
+            // panel2
             // 
-            this.ASIGNATURAS.Location = new System.Drawing.Point(70, 380);
-            this.ASIGNATURAS.Name = "ASIGNATURAS";
-            this.ASIGNATURAS.Size = new System.Drawing.Size(124, 59);
-            this.ASIGNATURAS.TabIndex = 22;
-            this.ASIGNATURAS.Text = "Asignaturas";
-            this.ASIGNATURAS.UseVisualStyleBackColor = true;
-            this.ASIGNATURAS.Click += new System.EventHandler(this.ASIGNATURAS_Click);
+            this.panel2.BackgroundImage = global::CRUD_ACIA.Properties.Resources.groupo_four_teenage_friends_hanging_out_high_school;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel2.Location = new System.Drawing.Point(0, 180);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(283, 188);
+            this.panel2.TabIndex = 23;
             // 
             // CRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1077, 516);
+            this.ClientSize = new System.Drawing.Size(1077, 473);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.ASIGNATURAS);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.BTNagregar2);
             this.Controls.Add(this.AgregarCredenBTN);
             this.Controls.Add(this.label7);
@@ -339,8 +326,6 @@
             this.Name = "CRUD";
             this.Text = "CRUD";
             this.Load += new System.EventHandler(this.CRUD_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rolBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCIADataSet)).EndInit();
             this.ResumeLayout(false);
@@ -372,9 +357,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button AgregarCredenBTN;
         private System.Windows.Forms.Button BTNagregar2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label WelcomeToUser;
         private System.Windows.Forms.Button ASIGNATURAS;
+        private System.Windows.Forms.Panel panel2;
     }
 }

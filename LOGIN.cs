@@ -78,6 +78,7 @@ namespace CRUD_ACIA
 
                 CRUD crudd = new CRUD();
                 crudd.Show();
+                this.Hide();
                 Clases.Usuario CurrentUser = new Clases.Usuario();
 
                 using (SqlConnection connection = new SqlConnection(connectionString))

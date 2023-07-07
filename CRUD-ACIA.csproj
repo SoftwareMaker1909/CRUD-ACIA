@@ -105,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ACIADataSet.xsc">
       <DependentUpon>ACIADataSet.xsd</DependentUpon>
@@ -165,6 +166,15 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boy-studying-university-library.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portrait-cute-young-woman-carrying-books-backpack-smiling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupo-four-teenage-friends-hanging-out-high-school.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

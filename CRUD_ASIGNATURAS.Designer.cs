@@ -50,6 +50,9 @@
             this.aCIADataSetMaestro_Credencial = new CRUD_ACIA.ACIADataSetMaestro_Credencial();
             this.maestroCredencialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maestro_CredencialTableAdapter = new CRUD_ACIA.ACIADataSetMaestro_CredencialTableAdapters.Maestro_CredencialTableAdapter();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cuposmateriaUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CreditoUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiasDataset)).BeginInit();
@@ -221,11 +224,51 @@
             // 
             this.maestro_CredencialTableAdapter.ClearBeforeFill = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(250)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(65)))), ((int)(((byte)(77)))));
+            this.button2.Location = new System.Drawing.Point(901, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 25);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::CRUD_ACIA.Properties.Resources.boy_studying_university_library;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(452, 303);
+            this.panel1.TabIndex = 22;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(757, 245);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 48);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Usuarios";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CRUD_ASIGNATURAS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(994, 303);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -241,6 +284,7 @@
             this.Controls.Add(this.cuposmateriaUD);
             this.Controls.Add(this.NombreMateriatbx);
             this.Controls.Add(this.CodigoMateriatbx);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CRUD_ASIGNATURAS";
             this.Text = "CRUD_ASIGNATURAS";
             this.Load += new System.EventHandler(this.CRUD_ASIGNATURAS_Load);
@@ -278,5 +322,8 @@
         private ACIADataSetMaestro_Credencial aCIADataSetMaestro_Credencial;
         private System.Windows.Forms.BindingSource maestroCredencialBindingSource;
         private ACIADataSetMaestro_CredencialTableAdapters.Maestro_CredencialTableAdapter maestro_CredencialTableAdapter;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

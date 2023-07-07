@@ -237,6 +237,7 @@ namespace CRUD_ACIA
 
             CRUD_ASIGNATURAS Asignatura = new CRUD_ASIGNATURAS();
             Asignatura.Show();
+            this.Hide();
         }
     }
 }
