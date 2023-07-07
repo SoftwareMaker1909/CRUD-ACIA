@@ -51,12 +51,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ACIADataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ACIADataSetMaestro_Credencial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ACIADataSetMaestro_Credencial.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Usuario.cs" />
-    <Compile Include="CRUD.cs">
+    <Compile Include="CRUD-Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CRUD.Designer.cs">
-      <DependentUpon>CRUD.cs</DependentUpon>
+    <Compile Include="CRUD-Usuarios.Designer.cs">
+      <DependentUpon>CRUD-Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD_ASIGNATURAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRUD_ASIGNATURAS.Designer.cs">
+      <DependentUpon>CRUD_ASIGNATURAS.cs</DependentUpon>
     </Compile>
     <Compile Include="LOGIN.cs">
       <SubType>Form</SubType>
@@ -64,11 +75,24 @@
     <Compile Include="LOGIN.Designer.cs">
       <DependentUpon>LOGIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Materias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Materias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MateriasDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MateriasDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CRUD.resx">
-      <DependentUpon>CRUD.cs</DependentUpon>
+    <EmbeddedResource Include="CRUD-Usuarios.resx">
+      <DependentUpon>CRUD-Usuarios.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD_ASIGNATURAS.resx">
+      <DependentUpon>CRUD_ASIGNATURAS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
@@ -92,6 +116,39 @@
     </None>
     <None Include="ACIADataSet.xss">
       <DependentUpon>ACIADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ACIADataSetMaestro_Credencial.xsc">
+      <DependentUpon>ACIADataSetMaestro_Credencial.xsd</DependentUpon>
+    </None>
+    <None Include="ACIADataSetMaestro_Credencial.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ACIADataSetMaestro_Credencial.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ACIADataSetMaestro_Credencial.xss">
+      <DependentUpon>ACIADataSetMaestro_Credencial.xsd</DependentUpon>
+    </None>
+    <None Include="Materias.xsc">
+      <DependentUpon>Materias.xsd</DependentUpon>
+    </None>
+    <None Include="Materias.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Materias.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Materias.xss">
+      <DependentUpon>Materias.xsd</DependentUpon>
+    </None>
+    <None Include="MateriasDataset.xsc">
+      <DependentUpon>MateriasDataset.xsd</DependentUpon>
+    </None>
+    <None Include="MateriasDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MateriasDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MateriasDataset.xss">
+      <DependentUpon>MateriasDataset.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

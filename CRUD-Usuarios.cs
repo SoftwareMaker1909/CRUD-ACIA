@@ -231,5 +231,12 @@ namespace CRUD_ACIA
         {
 
         }
+
+        private void ASIGNATURAS_Click(object sender, EventArgs e)
+        {
+
+            CRUD_ASIGNATURAS Asignatura = new CRUD_ASIGNATURAS();
+            Asignatura.Show();
+        }
     }
 }
